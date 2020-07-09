@@ -1,18 +1,15 @@
-import os
-import requests
+from src.data.download_from_dataverse import download
 
-print('Beginning national data file download with requests')
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+def main():
+    status, headers, encoding = download_nation()
+    print('STATUS:\n' + status)
+    print('HEADERS:\n' + headers)
+    print('ENCODING:\n' + encoding)
 
-url = 'https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/BMRPVH/SPI1XO'
-filename = '../../data/external/nation_data.dta'
-r = requests.get(url)
 
-with open(filename, 'wb') as f:
-    f.write(r.content)
-
-# Retrieve HTTP meta-data
-print(r.status_code)
-print(r.headers['content-type'])
-print(r.encoding)
+def download_nation():
+    doi = '10.7910/DVN/BMRPVH/SPI1XO'
+    filename = 'nation_data.dta'
+    status, headers, encoding = download(doi, filename)
+    return status, headers, encoding
