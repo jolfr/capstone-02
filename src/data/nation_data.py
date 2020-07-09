@@ -1,4 +1,4 @@
-from src.data import download_from_dataverse as dataverse
+from src.data import dataverse
 
 
 def download_nation():

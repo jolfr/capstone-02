@@ -1,14 +1,14 @@
-from src.data import download_from_dataverse as dataverse
+from src.data import dataverse
 
 
-def download_zip():
-    doi = '10.7910/DVN/BMRPVH/N2FWBK'
-    filename = 'zip_data.dta'
+def download_msa():
+    doi = '10.7910/DVN/BMRPVH/RA3V1D'
+    filename = 'msa_data.dta'
     status, headers, encoding = dataverse.download(doi=doi, filename=filename)
     return status, headers, encoding
 
 
-s, h, e = download_zip()
+s, h, e = download_msa()
 print('STATUS:\t\t' + str(s))
 print('HEADERS:\t' + h)
 print('ENCODING:\t' + e)
