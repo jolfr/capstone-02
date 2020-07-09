@@ -1,7 +1,7 @@
 import os
 import requests
 
-print('Beginning file download with requests')
+print('Beginning national data file download with requests')
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
