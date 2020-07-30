@@ -16,9 +16,3 @@ def download():
         f.write(r.content)
 
     return r.status_code, r.headers['content-type'], r.encoding
-
-
-status, headers, encoding = download()
-print(status)
-print(headers)
-print(encoding)
